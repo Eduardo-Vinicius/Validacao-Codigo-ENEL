@@ -1,0 +1,16 @@
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\hora\bin\Debug\net5.0\hora.exe
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\hora\bin\Debug\net5.0\hora.deps.json
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\hora\bin\Debug\net5.0\hora.runtimeconfig.json
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\hora\bin\Debug\net5.0\hora.runtimeconfig.dev.json
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\hora\bin\Debug\net5.0\hora.dll
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\hora\bin\Debug\net5.0\ref\hora.dll
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\hora\bin\Debug\net5.0\hora.pdb
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\hora\obj\Debug\net5.0\hora.csprojAssemblyReference.cache
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\hora\obj\Debug\net5.0\hora.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\hora\obj\Debug\net5.0\hora.AssemblyInfoInputs.cache
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\hora\obj\Debug\net5.0\hora.AssemblyInfo.cs
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\hora\obj\Debug\net5.0\hora.csproj.CoreCompileInputs.cache
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\hora\obj\Debug\net5.0\hora.dll
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\hora\obj\Debug\net5.0\ref\hora.dll
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\hora\obj\Debug\net5.0\hora.pdb
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\hora\obj\Debug\net5.0\hora.genruntimeconfig.cache

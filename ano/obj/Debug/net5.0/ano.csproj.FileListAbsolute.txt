@@ -1,0 +1,16 @@
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\ano\bin\Debug\net5.0\ano.exe
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\ano\bin\Debug\net5.0\ano.deps.json
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\ano\bin\Debug\net5.0\ano.runtimeconfig.json
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\ano\bin\Debug\net5.0\ano.runtimeconfig.dev.json
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\ano\bin\Debug\net5.0\ano.dll
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\ano\bin\Debug\net5.0\ref\ano.dll
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\ano\bin\Debug\net5.0\ano.pdb
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\ano\obj\Debug\net5.0\ano.csprojAssemblyReference.cache
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\ano\obj\Debug\net5.0\ano.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\ano\obj\Debug\net5.0\ano.AssemblyInfoInputs.cache
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\ano\obj\Debug\net5.0\ano.AssemblyInfo.cs
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\ano\obj\Debug\net5.0\ano.csproj.CoreCompileInputs.cache
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\ano\obj\Debug\net5.0\ano.dll
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\ano\obj\Debug\net5.0\ref\ano.dll
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\ano\obj\Debug\net5.0\ano.pdb
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\ano\obj\Debug\net5.0\ano.genruntimeconfig.cache

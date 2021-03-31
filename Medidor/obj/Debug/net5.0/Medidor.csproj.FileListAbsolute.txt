@@ -1,0 +1,16 @@
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\Medidor\bin\Debug\net5.0\Medidor.exe
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\Medidor\bin\Debug\net5.0\Medidor.deps.json
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\Medidor\bin\Debug\net5.0\Medidor.runtimeconfig.json
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\Medidor\bin\Debug\net5.0\Medidor.runtimeconfig.dev.json
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\Medidor\bin\Debug\net5.0\Medidor.dll
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\Medidor\bin\Debug\net5.0\ref\Medidor.dll
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\Medidor\bin\Debug\net5.0\Medidor.pdb
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\Medidor\obj\Debug\net5.0\Medidor.csprojAssemblyReference.cache
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\Medidor\obj\Debug\net5.0\Medidor.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\Medidor\obj\Debug\net5.0\Medidor.AssemblyInfoInputs.cache
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\Medidor\obj\Debug\net5.0\Medidor.AssemblyInfo.cs
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\Medidor\obj\Debug\net5.0\Medidor.csproj.CoreCompileInputs.cache
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\Medidor\obj\Debug\net5.0\Medidor.dll
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\Medidor\obj\Debug\net5.0\ref\Medidor.dll
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\Medidor\obj\Debug\net5.0\Medidor.pdb
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\Medidor\obj\Debug\net5.0\Medidor.genruntimeconfig.cache

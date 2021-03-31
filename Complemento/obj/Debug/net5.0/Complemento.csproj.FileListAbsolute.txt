@@ -1,0 +1,16 @@
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\Complemento\bin\Debug\net5.0\Complemento.exe
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\Complemento\bin\Debug\net5.0\Complemento.deps.json
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\Complemento\bin\Debug\net5.0\Complemento.runtimeconfig.json
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\Complemento\bin\Debug\net5.0\Complemento.runtimeconfig.dev.json
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\Complemento\bin\Debug\net5.0\Complemento.dll
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\Complemento\bin\Debug\net5.0\ref\Complemento.dll
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\Complemento\bin\Debug\net5.0\Complemento.pdb
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\Complemento\obj\Debug\net5.0\Complemento.csprojAssemblyReference.cache
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\Complemento\obj\Debug\net5.0\Complemento.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\Complemento\obj\Debug\net5.0\Complemento.AssemblyInfoInputs.cache
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\Complemento\obj\Debug\net5.0\Complemento.AssemblyInfo.cs
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\Complemento\obj\Debug\net5.0\Complemento.csproj.CoreCompileInputs.cache
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\Complemento\obj\Debug\net5.0\Complemento.dll
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\Complemento\obj\Debug\net5.0\ref\Complemento.dll
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\Complemento\obj\Debug\net5.0\Complemento.pdb
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\Complemento\obj\Debug\net5.0\Complemento.genruntimeconfig.cache

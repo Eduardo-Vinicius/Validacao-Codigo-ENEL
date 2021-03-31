@@ -1,0 +1,16 @@
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\kw\bin\Debug\net5.0\kw.exe
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\kw\bin\Debug\net5.0\kw.deps.json
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\kw\bin\Debug\net5.0\kw.runtimeconfig.json
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\kw\bin\Debug\net5.0\kw.runtimeconfig.dev.json
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\kw\bin\Debug\net5.0\kw.dll
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\kw\bin\Debug\net5.0\ref\kw.dll
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\kw\bin\Debug\net5.0\kw.pdb
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\kw\obj\Debug\net5.0\kw.csprojAssemblyReference.cache
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\kw\obj\Debug\net5.0\kw.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\kw\obj\Debug\net5.0\kw.AssemblyInfoInputs.cache
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\kw\obj\Debug\net5.0\kw.AssemblyInfo.cs
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\kw\obj\Debug\net5.0\kw.csproj.CoreCompileInputs.cache
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\kw\obj\Debug\net5.0\kw.dll
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\kw\obj\Debug\net5.0\ref\kw.dll
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\kw\obj\Debug\net5.0\kw.pdb
+C:\Users\rufin\OneDrive\Área de Trabalho\Projetos\desafio intel core\kw\obj\Debug\net5.0\kw.genruntimeconfig.cache
