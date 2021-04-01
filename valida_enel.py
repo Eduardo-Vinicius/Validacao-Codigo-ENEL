@@ -1,12 +1,36 @@
 import re
 
-texto_enel = "00000348340483300100051Bloco 1A apto 44    ##SSP29Fevereiro 20211544230007A16894030000840001550"
-print(len(texto_enel))
-print(texto_enel[50:59])
+lista_texto = ["00000348340483300100051Bloco 1A apto 44    ##SSP29Fevereiro 20211544230007A16894030000840001550",
+               "000103483404833001sd00051Bloco 1A apto 44    ##SSP29Fevereiro 20211544230007A168940300020240001550",
+               "00000348340483300100051Blsoo 1A apto 44    ##MMG19Março    20211544230007A16894030000840042550"]
+
+# texto_enel = "00000348340483300100051Bloco 1A apto 44    ##SSP29Fevereiro 20211544230007A16894030000840001550"
+
+
+def show_error(line, error, field):
+    return f"Na linha {line} do arquivo, aconteceu o erro: '{error}' no campo {field}"
+
+
+x = show_error(1, "xablau", "febem")
+print(x)
 
 # print(len(texto_enel))
 # print(texto_enel[10:18])
 
+
+lista = ["Janeiro   ", "Fevereiro ", "Março     ", "Abril     ", "Maio      ", "Junho     ",
+         "Julho     ", "Agosto    ", "Setembro  ", "Outubro   ", "Novembro  ", "Dezembro  "]
+
+erros = {
+    "tamanho": "O tamanho da linha se encontra incorreto!",
+    "nao_zero": "Os caracteres informados são todos 0!",
+    "value_error": "O campo não contém apenas números.",
+    "special_char": "O campo contém caracteres especiais.",
+    "regiao_hash": "A Região não possui '##' como complemento.",
+    "regiao_code": "O código da Região está incorreto!",
+    "invalid_value": "Valor inválido!",
+    "space": "Não pode possuir espaços no campo."
+}
 
 aparelhos = {
     "01": "Aspirador",
@@ -24,6 +48,8 @@ aparelhos = {
     "13": "Vassoura Elétrica",
     "14": "Outros"
 }
+
+print(aparelhos["01"])
 
 
 def valida_tamanho(texto):
@@ -97,10 +123,11 @@ def valida_dia(texto):
 
 def valida_mes(texto):
     mes = texto[50:60]
-    if month_okay(wicth_month(mes), mes) == False:
-        print("*Erro no Mês* - Esse Mês não é valido")
-    else:
-        valida_ano(texto)
+    for i in lista:
+        if mes not in lista:
+            print("Não encontramos o mês na lista")
+    print("Tudo ok")
+    valida_ano(texto)
 
 
 def valida_ano(texto):
@@ -229,86 +256,8 @@ def contains_special(texto):
     return True
 
 
-def month_okay(n, mes):
-    if n == 1:
-        if mes[8:9] == "   ":
-            return True
-    elif n == 2:
-        if mes[8:9] == " ":
-            return True
-    elif n == 3:
-        if mes[5:9] == "     ":
-            return True
-    elif n == 4:
-        if mes[5:9] == "     ":
-            return True
-    elif n == 5:
-        if mes[4:9] == "      ":
-            return True
-    elif n == 6:
-        if mes[5:9] == "     ":
-            return True
-    elif n == 7:
-        if mes(5, 9) == "     ":
-            return True
-    elif n == 8:
-        if mes[6:9] == "    ":
-            return True
-    elif n == 9:
-        if mes[8:9] == "  ":
-            return True
-    elif n == 10:
-        if mes[7:9] == "   ":
-            return True
-    elif n == 11:
-        if mes[8:9] == "  ":
-            return True
-    elif n == 12:
-        if mes[8:9] == "  ":
-            return True
-    else:
-        return False
+if __name__ == "__main__":
+    tamanho = len(lista_texto)
 
-
-def wicth_month(x):
-    if x[0:6] == "Janeiro":
-        return 1
-
-    elif x[0:9] == "Fevereiro":
-        return 2
-
-    elif x[0:4] == "Março":
-        return 3
-
-    elif x[0:4] == "Abril":
-        return 4
-
-    elif x[0:3] == "Maio":
-        return 5
-
-    elif x[0:4] == "Junho":
-        return 6
-
-    elif x[0:4] == "Julho":
-        return 7
-
-    elif x[0:5] == "Agosto":
-        return 8
-
-    elif x[0:7] == "Setembro":
-        return 9
-
-    elif x[0:6] == "Outubro":
-        return 10
-
-    elif x[0:7] == "Novembro":
-        return 11
-
-    elif x[0:7] == "Dezembro":
-        return 12
-
-    else:
-        return 13
-
-
-valida_tamanho(texto_enel)
+    for i in lista_texto:
+        valida_tamanho(i)
