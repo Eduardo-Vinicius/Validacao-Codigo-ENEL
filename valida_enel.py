@@ -1,12 +1,12 @@
 import re
 
 texto_enel = "00000348340483300100051Bloco 1A apto 44    ##SSP29Fevereiro 20211544230007A16894030000840001550"
-
+print(len(texto_enel))
 print(texto_enel[50:59])
 
 # print(len(texto_enel))
-
 # print(texto_enel[10:18])
+
 
 aparelhos = {
     "01": "Aspirador",
@@ -76,34 +76,12 @@ def valida_complemento(texto):
 
 def valida_regiao(texto):
     regiao = texto[43:48]
-    print(regiao[0:2])
-    print(regiao[2:5])
     if regiao[0:2] != "##":
         print("*Erro na Região* - A Região não possui '##' como complemento")
     if regiao[2:5] != "SSP":
         print("*Erro na Região* - O Codigo da Região não é valido")
     else:
         valida_dia(texto)
-
-
-def valida_data(data):
-    dia, mes, ano = map(int, data.split('/'))
-    if mes < 1 or mes > 12 or ano <= 0:
-        print("*Erro na Data* - A data está incorreta!")
-    if mes in (1, 3, 5, 7, 8, 10, 12):
-        ultimo_dia = 31
-    elif mes == 2:
-        if (ano % 4 == 0) and (ano % 100 != 0 or ano % 400 == 0):
-            ultimo_dia = 29
-        else:
-            ultimo_dia = 28
-    else:
-        ultimo_dia = 30
-
-    if dia < 1 or dia > ultimo_dia:
-        return False
-
-    return True
 
 
 def valida_dia(texto):
@@ -118,7 +96,7 @@ def valida_dia(texto):
 
 
 def valida_mes(texto):
-    mes = texto[50:59]
+    mes = texto[50:60]
     if month_okay(wicth_month(mes), mes) == False:
         print("*Erro no Mês* - Esse Mês não é valido")
     else:
@@ -126,13 +104,16 @@ def valida_mes(texto):
 
 
 def valida_ano(texto):
-    ano = texto[60:63]
+    ano = texto[60:64]
+
     if ano == "0000":
         print("*Erro no Ano* - O ano não pode ser somento '0'")
-    if is_int(ano) == False:
-        print("*Erro no Ano* - O ano deve possuir somente números")
     if contains_special(ano) == True:
         print("*Erro no Ano* - O ano não pode possuir caracteres especiais")
+    ano = converte_numero(ano)
+    if is_int(ano) == False:
+        print("*Erro no Ano* - O ano deve possuir somente números")
+
     else:
         valida_hora(texto)
 
@@ -146,21 +127,25 @@ def valida_hora(texto):
 
 
 def valida_minuto(texto):
+    minuto = texto[66:68]
+    if contains_special(minuto) == True:
+        print("*Erro no Minuto* - O Minuto não pode Possuir um caractere especial")
     minuto = converte_numero(texto[66:68])
     if minuto > 59 or minuto < 0:
         print("*Erro no Minuto* - O Minuto não é valido")
-    if contains_special(minuto) == True:
-        print("*Erro no Minuto* - O Minuto não pode Possuir um caractere especial")
+
     else:
         valida_segundo(texto)
 
 
 def valida_segundo(texto):
-    segundo = converte_numero(texto[68:70])
-    if segundo > 59 or minuto < 0:
-        print("*Erro no Segundo* - O Segundo não é valido")
+    segundo = texto[68:70]
     if contains_special(segundo) == True:
         print("*Erro no Segundo* - O Segundo não pode Possuir um caractere especial")
+    segundo = converte_numero(texto[68:70])
+    if segundo > 59 or segundo < 0:
+        print("*Erro no Segundo* - O Segundo não é valido")
+
     else:
         valida_medidor(texto)
 
@@ -176,7 +161,8 @@ def valida_medidor(texto):
 
 
 def valida_aparelho(texto):
-    aparelho = converte_numero(texto[80:81])
+    aparelho = converte_numero(texto[80:82])
+    print(aparelho)
     if aparelho > 14 or aparelho <= 0:
         print("*Erro no Aparelho* - Esse Aparelho não é valido")
     else:
@@ -185,19 +171,25 @@ def valida_aparelho(texto):
 
 def valida_kw(texto):
     kw = texto[82:87]
+    if contains_special(kw):
+        print("*Erro no KW* - O kw não deve conter caracteres especiais")
+
+    kw = converte_numero(texto[82:87])
     if is_int(kw) == False:
         print("*Erro no KW* - O kw deve conter somente numeros")
     if kw == "000000":
         print("*Erro no KW* - O kw não pode possuir somente zeros")
-    if contains_special(kw):
-        print("*Erro no KW* - O kw não deve conter caracteres especiais")
+
     else:
         valida_custo(texto)
 
 
 def valida_custo(texto):
-    custo = converte_numero(texto[88:92] + "." + texto[92:94])
-    if custo <= 0:
+    custo = texto[88:95]
+
+    x = custo[0:5] + "." + custo[5:7]
+    x = float(x)
+    if x <= 0:
         print("*Erro no Custo* - O Custo não pode ser zero ou negativo")
     else:
         print("Tudo Okay")
@@ -210,6 +202,19 @@ def converte_numero(x):
         print("O texto não contém apenas números")
 
 
+def converte_decimal(x):
+    try:
+        return float(x)
+    except ValueError:
+        print("O texto não contém apenas números")
+
+
+def is_float(x):
+    if type(x) == float:
+        return True
+    return False
+
+
 def is_int(x):
     if type(x) == int:
         return True
@@ -217,13 +222,7 @@ def is_int(x):
 
 
 def contains_special(texto):
-    # Make own character set and pass
-    # this as argument in compile method
-
     string_check = re.compile('[@_!#$%^&*()<>?/\|}{~:]')
-
-    # Pass the string in searchs
-    # method of regex object.
 
     if(string_check.search(texto) == None):
         return False
@@ -232,10 +231,10 @@ def contains_special(texto):
 
 def month_okay(n, mes):
     if n == 1:
-        if mes[7, 9] == "   ":
+        if mes[8:9] == "   ":
             return True
     elif n == 2:
-        if mes[8, 9] == " ":
+        if mes[8:9] == " ":
             return True
     elif n == 3:
         if mes[5:9] == "     ":
@@ -275,7 +274,7 @@ def wicth_month(x):
     if x[0:6] == "Janeiro":
         return 1
 
-    elif x[0:8] == "Fevereiro":
+    elif x[0:9] == "Fevereiro":
         return 2
 
     elif x[0:4] == "Março":
