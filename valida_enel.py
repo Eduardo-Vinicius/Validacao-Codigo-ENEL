@@ -74,14 +74,14 @@ def valida_tamanho(texto, linha):
     tamanho = len(texto)
     if tamanho > 95 or tamanho < 95:
         dic_erros[linha].append(
-            "Tamanho: 'tamanho incorreto, o código informado se encontra com erro!'")
+            erros["tamanho"])
     return valida_cliente(texto, linha)
 
 
 def valida_cliente(texto, linha):
     if texto[0:10] == "0000000000":
         dic_erros[linha].append(
-            "Cliente: Os números não podem ser 0! Erro no cliente!")
+            erros["nao_zero"])
     cliente = converte_numero(texto[0:10])
     if is_int(cliente) != True:
         dic_erros[linha].append(
@@ -92,11 +92,11 @@ def valida_cliente(texto, linha):
 def valida_cep(texto, linha):
     cep = texto[10:18]
     if cep == "00000000":
-        dic_erros[linha].append("CEP: O Cep contém apenas o número 0 (Zero).")
+        dic_erros[linha].append(erros["nao_zero"])
     cep = converte_numero(cep)
     if is_int(cep) != True:
         dic_erros[linha].append(
-            "CEP: O Cep está incorreto, não contém apenas números!")
+            erros["value_error"])
     valida_numero(texto, linha)
 
 
@@ -104,10 +104,10 @@ def valida_numero(texto, linha):
     numero = texto[18:23]
     if numero == "00000":
         dic_erros[linha].append(
-            "Número - O número não pode conter apenas 0 Zero.")
+            erros["nao_zero"])
     if contains_special(numero) == True:
         dic_erros[linha].append(
-            "Número - O número contém caracteres especiais!")
+            erros["special_char"])
     valida_complemento(texto, linha)
 
 
@@ -118,7 +118,7 @@ def valida_complemento(texto, linha):
             "Complemento - O complemento só possui números")
     if contains_special(complemento) == True:
         dic_erros[linha].append(
-            "Complemento - O complemento não pode possuir caracter especial")
+            erros["special_char"])
     valida_regiao(texto, linha)
 
 
@@ -126,9 +126,9 @@ def valida_regiao(texto, linha):
     regiao = texto[43:48]
     if regiao[0:2] != "##":
         dic_erros[linha].append(
-            "Região - A Região não possui '##' como complemento")
+            erros["regiao_hash"])
     if regiao[2:5] != "SSP":
-        dic_erros[linha].append("Região - O Codigo da Região não é valido")
+        dic_erros[linha].append(erros["regiao_code"])
     valida_dia(texto, linha)
 
 
@@ -136,9 +136,9 @@ def valida_dia(texto, linha):
     dia = texto[48:50]
     idia = converte_numero(dia)
     if is_int(idia) == False:
-        dic_erros[linha].append("Dia - O dia não é um número")
+        dic_erros[linha].append(erros["value_error"])
     if idia == 0 or idia > 31:
-        dic_erros[linha].append("Dia - Esse dia não é valido")
+        dic_erros[linha].append(erros["invalid_value"])
     valida_mes(texto, linha)
 
 
@@ -147,7 +147,7 @@ def valida_mes(texto, linha):
 
     for i in lista:
         if mes not in lista:
-            dic_erros[linha].append("Mês - Não encontramos o mês na lista")
+            dic_erros[linha].append("Não encontramos o mês na lista")
             break
     valida_ano(texto, linha)
 
@@ -156,13 +156,12 @@ def valida_ano(texto, linha):
     ano = texto[60:64]
 
     if ano == "0000":
-        dic_erros[linha].append("Ano - O ano não pode ser somento '0'")
+        dic_erros[linha].append(erros["nao_zero"])
     if contains_special(ano) == True:
-        dic_erros[linha].append(
-            "Ano - O ano não pode possuir caracteres especiais")
+        dic_erros[linha].append(erros["special_char"])
     ano = converte_numero(ano)
     if is_int(ano) == False:
-        dic_erros[linha].append("Ano - O ano deve possuir somente números")
+        dic_erros[linha].append(erros["value_error"])
 
     valida_hora(texto, linha)
 
@@ -171,19 +170,18 @@ def valida_hora(texto, linha):
 
     hora = converte_numero(texto[64:66])
     if hora > 23 or hora < 0:
-        dic_erros[linha].append("Erro - A Hora não é valida")
+        dic_erros[linha].append(erros["invalid_value"])
     valida_minuto(texto, linha)
 
 
 def valida_minuto(texto, linha):
     minuto = texto[66:68]
     if contains_special(minuto) == True:
-        dic_erros[linha].append(
-            "Minuto - O Minuto não pode Possuir um caractere especial")
+        dic_erros[linha].append(erros["special_char"])
     minuto = converte_numero(texto[66:68])
 
     if minuto > 59 or minuto < 0 or minuto == False:
-        dic_erros[linha].append("Minuto - O Minuto não é valido")
+        dic_erros[linha].append(erros["invalid_value"])
 
     valida_segundo(texto, linha)
 
@@ -191,11 +189,10 @@ def valida_minuto(texto, linha):
 def valida_segundo(texto, linha):
     segundo = texto[68:70]
     if contains_special(segundo) == True:
-        dic_erros[linha].append(
-            "Segundo - O Segundo não pode Possuir um caractere especial")
+        dic_erros[linha].append(erros["special_char"])
     segundo = converte_numero(texto[68:70])
     if segundo > 59 or segundo < 0:
-        dic_erros[linha].append("Segundo - O Segundo não é valido")
+        dic_erros[linha].append(erros["invalid_value"])
 
     valida_medidor(texto, linha)
 
@@ -205,29 +202,27 @@ def valida_medidor(texto, linha):
     if medidor.isspace() == True:
         dic_erros[linha].append("Medidor - O medidor não deve possuir espaços")
     if medidor == "0000000000":
-        dic_erros[linha].append(
-            "Medidor - O medidor não pode possuir somente zeros")
+        dic_erros[linha].append(erros["nao_zero"])
     valida_aparelho(texto, linha)
 
 
 def valida_aparelho(texto, linha):
     aparelho = converte_numero(texto[80:82])
     if aparelho > 14 or aparelho <= 0:
-        dic_erros[linha].append("Aparelho - Esse Aparelho não é valido")
+        dic_erros[linha].append(erros["invalid_value"])
     valida_kw(texto, linha)
 
 
 def valida_kw(texto, linha):
     kw = texto[82:87]
     if contains_special(kw):
-        dic_erros[linha].append(
-            "KW - O kw não deve conter caracteres especiais")
+        dic_erros[linha].append(erros["special_char"])
 
     kw = converte_numero(texto[82:87])
     if is_int(kw) == False:
-        dic_erros[linha].append("KW - O kw deve conter somente numeros")
+        dic_erros[linha].append(erros["value_error"])
     if kw == "000000":
-        dic_erros[linha].append("KW - O kw não pode possuir somente zeros")
+        dic_erros[linha].append(erros["nao_zero"])
 
     valida_custo(texto, linha)
 
@@ -239,7 +234,7 @@ def valida_custo(texto, linha):
         dic_erros[linha].append("Custo - Não possui caracteres")
     else:
         if contains_special(x) == True:
-            dic_erros[linha].append("Custo - Contém caracteres especiais")
+            dic_erros[linha].append(erros["special_char"])
         else:
             x = float(x)
             if x <= 0:
@@ -289,11 +284,6 @@ if __name__ == "__main__":
     contador = 1
     for i in lista_texto:
         dic_erros[contador] = [""]
-
-        print(f"Linha {contador}")
         valida_tamanho(i, contador)
-        print("__________________________________________")
-        print(" ")
-
         contador += 1
 pprint.pprint(dic_erros)
