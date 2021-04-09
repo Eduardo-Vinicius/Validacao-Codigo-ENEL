@@ -24,12 +24,14 @@ lista_texto = ["00000348340483300100051Bloco 1A apto 44    ##SSP29Dezembro  2021
 
 # texto_enel = "00000348340483300100051Bloco 1A apto 44    ##SSP29Fevereiro 20211544230007A16894030000840001550"
 
+lista_show_error = []
+
 
 def show_error(line, error, field):
+    x = f"Na linha {line} do arquivo, aconteceu o erro: '{error}' no campo {field}"
+    lista_show_error.append(x)
     return f"Na linha {line} do arquivo, aconteceu o erro: '{error}' no campo {field}"
 
-
-x = show_error(1, "xablau", "febem")
 # print(x)
 
 # print(len(texto_enel))
@@ -73,8 +75,8 @@ aparelhos = {
 def valida_tamanho(texto, linha):
     tamanho = len(texto)
     if tamanho > 95 or tamanho < 95:
-        dic_erros[linha].append(
-            erros["tamanho"])
+        show_error(linha, erros["tamanho"], "Tamanho")
+        dic_erros[linha].append(erros["tamanho"])
     return valida_cliente(texto, linha)
 
 
@@ -286,4 +288,7 @@ if __name__ == "__main__":
         dic_erros[contador] = [""]
         valida_tamanho(i, contador)
         contador += 1
+
+
+pprint.pprint(lista_show_error)
 pprint.pprint(dic_erros)
