@@ -172,9 +172,11 @@ def valida_ano(texto, linha):
     if ano == "0000":
         dic_erros[linha].append(erros["nao_zero"])
     if contains_special(ano) == True:
+        show_error(linha, erros["special_char"], "Ano")
         dic_erros[linha].append(erros["special_char"])
     ano = converte_numero(ano)
     if is_int(ano) == False:
+        show_error(linha, erros["value_error"], "Ano")
         dic_erros[linha].append(erros["value_error"])
 
     valida_hora(texto, linha)
@@ -184,6 +186,7 @@ def valida_hora(texto, linha):
 
     hora = converte_numero(texto[64:66])
     if hora > 23 or hora < 0:
+        show_error(linha, erros["invalid_value"], "Hora")
         dic_erros[linha].append(erros["invalid_value"])
     valida_minuto(texto, linha)
 
@@ -191,10 +194,12 @@ def valida_hora(texto, linha):
 def valida_minuto(texto, linha):
     minuto = texto[66:68]
     if contains_special(minuto) == True:
+        show_error(linha, erros["special_char"], "Minuto")
         dic_erros[linha].append(erros["special_char"])
     minuto = converte_numero(texto[66:68])
 
     if minuto > 59 or minuto < 0 or minuto == False:
+        show_error(linha, erros["invalid_value"], "Minuto")
         dic_erros[linha].append(erros["invalid_value"])
 
     valida_segundo(texto, linha)
@@ -203,9 +208,11 @@ def valida_minuto(texto, linha):
 def valida_segundo(texto, linha):
     segundo = texto[68:70]
     if contains_special(segundo) == True:
+        show_error(linha, erros["special_char"], "Segundo")
         dic_erros[linha].append(erros["special_char"])
     segundo = converte_numero(texto[68:70])
     if segundo > 59 or segundo < 0:
+        show_error(linha, erros["invalid_value"], "Segundo")
         dic_erros[linha].append(erros["invalid_value"])
 
     valida_medidor(texto, linha)
@@ -214,8 +221,10 @@ def valida_segundo(texto, linha):
 def valida_medidor(texto, linha):
     medidor = texto[70:79]
     if medidor.isspace() == True:
+        show_error(linha, erros["space"], "Medidor")
         dic_erros[linha].append("Medidor - O medidor não deve possuir espaços")
     if medidor == "0000000000":
+        show_error(linha, erros["nao_zero"], "Medidor")
         dic_erros[linha].append(erros["nao_zero"])
     valida_aparelho(texto, linha)
 
@@ -223,6 +232,7 @@ def valida_medidor(texto, linha):
 def valida_aparelho(texto, linha):
     aparelho = converte_numero(texto[80:82])
     if aparelho > 14 or aparelho <= 0:
+        show_error(linha, erros["invalid_value"], "Aparelho")
         dic_erros[linha].append(erros["invalid_value"])
     valida_kw(texto, linha)
 
@@ -230,12 +240,15 @@ def valida_aparelho(texto, linha):
 def valida_kw(texto, linha):
     kw = texto[82:87]
     if contains_special(kw):
+        show_error(linha, erros["special_char"], "KW")
         dic_erros[linha].append(erros["special_char"])
 
     kw = converte_numero(texto[82:87])
     if is_int(kw) == False:
+        show_error(linha, erros["value_error"], "KW")
         dic_erros[linha].append(erros["value_error"])
     if kw == "000000":
+        show_error(linha, erros["nao_zero"], "KW")
         dic_erros[linha].append(erros["nao_zero"])
 
     valida_custo(texto, linha)
@@ -245,15 +258,21 @@ def valida_custo(texto, linha):
     custo = texto[88:95]
     x = custo[0:5] + "." + custo[5:7]
     if custo == "":
+        show_error(linha, "Custo - Não possui caracteres", "Custo")
         dic_erros[linha].append("Custo - Não possui caracteres")
     else:
         if contains_special(x) == True:
+            show_error(linha, erros["special_char"], "Custo")
             dic_erros[linha].append(erros["special_char"])
         else:
             x = float(x)
             if x <= 0:
+                show_error(
+                    linha, "Custo - O Custo não pode ser zero ou negativo", "Custo")
                 dic_erros[linha].append(
                     "Custo - O Custo não pode ser zero ou negativo")
+
+
 def converte_numero(x):
     try:
         return int(x)
