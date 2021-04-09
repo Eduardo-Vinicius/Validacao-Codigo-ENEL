@@ -82,10 +82,12 @@ def valida_tamanho(texto, linha):
 
 def valida_cliente(texto, linha):
     if texto[0:10] == "0000000000":
+        show_error(linha, erros["nao_zero"], "Cliente")
         dic_erros[linha].append(
             erros["nao_zero"])
     cliente = converte_numero(texto[0:10])
     if is_int(cliente) != True:
+        show_error(linha, erros["invalid_value"], "Cliente")
         dic_erros[linha].append(
             "Cliente: Encontrado problema no código do cliente!")
     valida_cep(texto, linha)
@@ -94,6 +96,7 @@ def valida_cliente(texto, linha):
 def valida_cep(texto, linha):
     cep = texto[10:18]
     if cep == "00000000":
+        show_error(linha, erros["nao_zero"], "CEP")
         dic_erros[linha].append(erros["nao_zero"])
     cep = converte_numero(cep)
     if is_int(cep) != True:
@@ -105,9 +108,11 @@ def valida_cep(texto, linha):
 def valida_numero(texto, linha):
     numero = texto[18:23]
     if numero == "00000":
+        show_error(linha, erros["nao_zero"], "Número: ")
         dic_erros[linha].append(
             erros["nao_zero"])
     if contains_special(numero) == True:
+        show_error(linha, erros["special_char"], "Número: ")
         dic_erros[linha].append(
             erros["special_char"])
     valida_complemento(texto, linha)
@@ -116,9 +121,11 @@ def valida_numero(texto, linha):
 def valida_complemento(texto, linha):
     complemento = texto[23:42]
     if is_int(complemento) == True:
+        show_error(linha, erros["special_char"], "Complemento: ")
         dic_erros[linha].append(
             "Complemento - O complemento só possui números")
     if contains_special(complemento) == True:
+        show_error(linha, erros["special_char"], "Complemento: ")
         dic_erros[linha].append(
             erros["special_char"])
     valida_regiao(texto, linha)
@@ -127,9 +134,11 @@ def valida_complemento(texto, linha):
 def valida_regiao(texto, linha):
     regiao = texto[43:48]
     if regiao[0:2] != "##":
+        show_error(linha, erros["special_char"], "Região: ")
         dic_erros[linha].append(
             erros["regiao_hash"])
     if regiao[2:5] != "SSP":
+        show_error(linha, erros["regiao_code"], "Região: ")
         dic_erros[linha].append(erros["regiao_code"])
     valida_dia(texto, linha)
 
@@ -138,8 +147,10 @@ def valida_dia(texto, linha):
     dia = texto[48:50]
     idia = converte_numero(dia)
     if is_int(idia) == False:
+        show_error(linha, erros["special_char"], "Dia: ")
         dic_erros[linha].append(erros["value_error"])
     if idia == 0 or idia > 31:
+        show_error(linha, erros["invalid_value"], "Dia: ")
         dic_erros[linha].append(erros["invalid_value"])
     valida_mes(texto, linha)
 
@@ -149,6 +160,7 @@ def valida_mes(texto, linha):
 
     for i in lista:
         if mes not in lista:
+            show_error(linha, erros["invalid_value"], "Mês: ")
             dic_erros[linha].append("Não encontramos o mês na lista")
             break
     valida_ano(texto, linha)
