@@ -13,9 +13,7 @@ def buscar_dados():
 
 def client_code(code):
     for i in code:
-        pprint.pprint(i)
-        for j in i["energyData"]:
-            pprint.pprint(j)
+        pass
 
 
 if __name__ == '__main__':
