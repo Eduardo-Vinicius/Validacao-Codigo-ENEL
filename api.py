@@ -20,3 +20,4 @@ def create_code(code):
 
 if __name__ == '__main__':
     buscar_dados()
+

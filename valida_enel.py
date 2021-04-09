@@ -254,8 +254,6 @@ def valida_custo(texto, linha):
             if x <= 0:
                 dic_erros[linha].append(
                     "Custo - O Custo não pode ser zero ou negativo")
-
-
 def converte_numero(x):
     try:
         return int(x)
