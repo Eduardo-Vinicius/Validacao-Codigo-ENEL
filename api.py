@@ -8,10 +8,10 @@ def buscar_dados():
     request = requests.get(
         "https://devmonk-energymeter.herokuapp.com/EnergyMeter")
     x = request.json()
-    return create_code(x)
+    return client_code(x)
 
 
-def create_code(code):
+def client_code(code):
     for i in code:
         pprint.pprint(i)
         for j in i["energyData"]:
