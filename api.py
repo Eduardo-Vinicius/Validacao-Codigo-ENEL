@@ -7,8 +7,8 @@ def buscar_dados():
     # request = requests.get("https://viacep.com.br/ws/04855450/json")
     request = requests.get(
         "https://devmonk-energymeter.herokuapp.com/EnergyMeter")
-    x = json.loads(request.content)
-    return create_code(x)
+    x = request.json()
+    print(x)
 
 
 def create_code(code):
