@@ -12,9 +12,14 @@ def buscar_dados():
 
 
 def client_code(code):
-    for i in code:
-        pass
+    x = str(code[0]["clientCode"])
+    tamanho = len(str(x))
+
+    if tamanho < 10:
+        dif = 10 - tamanho
+        x = x.zfill(dif)
+    return x
 
 
 if __name__ == '__main__':
-    print(buscar_dados())
+    pprint.pprint(buscar_dados())
