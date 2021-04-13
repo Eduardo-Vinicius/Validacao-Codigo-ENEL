@@ -1,29 +1,11 @@
 import re
 import pprint
 
+with open('invoice.data') as arquivo:
+    x = arquivo.read()
 
-lista_texto = ["00000348340483300100051Bloco 1A apto 44    ##SSP29Dezembro  20211544230007A16894030000840001550",
-               "000103483404833001sd00051Bloco 1A apto 44    ##SSP29Fevereiro 20211544230007A168940300020240001550",
-               "00000348340483300100051Blsoo 1A apto 44    ##MMG19Março    20211544230007A16894030000840042550",
-               "00000348340483300100051Bloco 2B apto 44    ##SSP29Fevereiro 20211544230007A16894030000840001550",
-               "000003232340483300100051Bloco 1A apto 44    ##SSP22Fevereiro 20211544230007A16894030000840001550",
-               "00000348340483300100051Bloco 1A apto 44    ##SSP29Fevereiro 2022544230007A16894330000840001550",
-               "00000R540483300100051Bloco 1A apto 44    ##SSP32Fevereiro 20211544230007A16894030000840001550",
-               "000003483404832310100051Bloco 1A apto 44    ##SSP29Fevereiro 20211544230007A168940300034840001550",
-               "000003483404833033330051Bloco 1A apto 44    #SSP29F232 21154330007A16894030000840001550",
-               "00000348340483300100051Bloco 1A   ##SSP29Fevereiro 20211544230007A1689403000240001550",
-               "00000348340481100051Bloco 1A apto 44    ##SSP29Fevereiro 2022244230007A16894030000840001550",
-               "00O00348340483E00100051Bloco 1A a.to 44    ##S5P29Feveeir0 20211544230007A168940300008400015@0",
-               "00O00348340483E00100051Bloco 1A apto 999    ##S5P29Fev3eir0 20211544230007A1689403000084015@0",
-               "00000348340483300100051Bloco 1A apto 44    ##SSP29Junh0     00211544230007A16894030000840001550",
-               "00000348340483300100000Bloco 1A apto 00    ##SSP29Fevereiro 20211544230007A16894030000840001550",
-               "00000000000000000100051Bloco 1A apto 44    ##SSP29Fevereiro 20211544230007A16894030000840001550",
-               "99O00348340483E00100051Bloco 12 apt0 44    *#S5P29Feve&eir0 20211544230007A168940300008400019950",
-               "000003483404833001000Bloco 1A apto 44    ##SSP29Fevereiro 20211544230007A16894030000840001550",
-               "00000348340483300100051Bloco 1A apto 44    ##SSP29julia 20211544230007A16894030000840001550"]
-
-# texto_enel = "00000348340483300100051Bloco 1A apto 44    ##SSP29Fevereiro 20211544230007A16894030000840001550"
-
+lista_texto = x.split("\n")
+lista_texto.pop()
 lista_show_error = []
 
 
@@ -32,10 +14,6 @@ def show_error(line, error, field):
     lista_show_error.append(x)
     return f"Na linha {line} do arquivo, aconteceu o erro: '{error}' no campo {field}"
 
-# print(x)
-
-# print(len(texto_enel))
-# print(texto_enel[10:18])
 
 
 lista = ["Janeiro   ", "Fevereiro ", "Março     ", "Abril     ", "Maio      ", "Junho     ",
@@ -197,8 +175,7 @@ def valida_minuto(texto, linha):
         show_error(linha, erros["special_char"], "Minuto")
         dic_erros[linha].append(erros["special_char"])
     minuto = converte_numero(texto[66:68])
-
-    if minuto > 59 or minuto < 0 or minuto == False:
+    if minuto > 59 or minuto < 0 :
         show_error(linha, erros["invalid_value"], "Minuto")
         dic_erros[linha].append(erros["invalid_value"])
 
@@ -318,6 +295,8 @@ if __name__ == "__main__":
         valida_tamanho(i, contador)
         contador += 1
 
+if len(lista_show_error) == 0:
+    lista_show_error.append("Tudo Okay")
 
 pprint.pprint(lista_show_error)
-pprint.pprint(dic_erros)
+
